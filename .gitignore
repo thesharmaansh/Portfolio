@@ -1,0 +1,12 @@
+# Personal files not part of the website
+2025 cv pdf.pdf
+portfolio 1.pdf
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor folders
+.vscode/
+.idea/

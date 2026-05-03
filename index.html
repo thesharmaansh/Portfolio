@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aakansha — Graphic Designer & Video Editor</title>
+  <meta name="description" content="Portfolio of Aakansha, graphic designer and video editor. Social media, branding, motion graphics, packaging and more." />
+
+  <!-- Google Fonts: Cormorant Garamond (serif headings) + Inter (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ───────── PAGE-WIDE GRAIN OVERLAY ───────── -->
+  <div class="page-grain" aria-hidden="true"></div>
+
+  <!-- ───────── CUSTOM CURSOR ───────── -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring">
+      <span class="cursor-text">View</span>
+    </div>
+  </div>
+
+  <!-- ───────── NAV ───────── -->
+  <nav class="nav" id="nav">
+    <a href="#top" class="nav-logo">AK<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ───────── HERO ───────── -->
+  <header class="hero" id="top">
+    <div class="hero-grain"></div>
+    <div class="hero-inner">
+      <p class="hero-eyebrow"><span class="dot"></span> Portfolio · Selected Works</p>
+
+      <h1 class="hero-name" data-text="Aakansha">
+        <span class="word">
+          <span class="ltr ltr-fill">A</span><span class="ltr ltr-out">a</span><span class="ltr ltr-fill">k</span><span class="ltr ltr-out">a</span><span class="ltr ltr-fill">n</span><span class="ltr ltr-out">s</span><span class="ltr ltr-fill">h</span><span class="ltr ltr-accent">a</span>
+        </span>
+      </h1>
+
+      <h2 class="hero-title">
+        <span class="line"><span>Graphic Designer</span></span>
+        <span class="amp">&amp;</span>
+        <span class="line"><span>Video Editor</span></span>
+      </h2>
+
+      <p class="hero-tagline">
+        <span class="typewriter" id="typewriter" aria-live="polite"></span><span class="caret" aria-hidden="true"></span>
+      </p>
+
+      <a class="hero-cta" href="#work">
+        <span>View Selected Work</span>
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+
+      <p class="hero-availability">
+        <span class="dot dot-green"></span>
+        <span>Currently available for new projects</span>
+      </p>
+    </div>
+
+    <div class="hero-scroll">
+      <span></span>
+      <p>Scroll</p>
+    </div>
+  </header>
+
+  <!-- ───────── WORK — horizontal scroller with category tabs ───────── -->
+  <section class="work-section" id="work">
+    <div class="work-heading">
+      <span class="work-heading-label">Selected Work</span>
+      <h2 class="work-heading-outline">WORK</h2>
+    </div>
+
+    <div class="work-tabs" id="workTabs" role="tablist" aria-label="Work categories">
+      <span class="work-tab-indicator" id="workTabIndicator"></span>
+      <button class="work-tab is-active" data-cat="all"       role="tab">All</button>
+      <button class="work-tab"           data-cat="logo"      role="tab">Logo</button>
+      <button class="work-tab"           data-cat="social"    role="tab">Social</button>
+      <button class="work-tab"           data-cat="brochure"  role="tab">Brochure</button>
+      <button class="work-tab"           data-cat="ads"       role="tab">Ads</button>
+      <button class="work-tab"           data-cat="packaging" role="tab">Packaging</button>
+      <button class="work-tab"           data-cat="amazon"    role="tab">Amazon</button>
+      <button class="work-tab"           data-cat="website"   role="tab">Website</button>
+    </div>
+
+    <div class="work-scroll-wrap">
+      <button class="work-nav work-nav-prev" id="workPrev" aria-label="Scroll left">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="work-track" id="workTrack"><!-- populated by script.js --></div>
+      <button class="work-nav work-nav-next" id="workNext" aria-label="Scroll right">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ───────── MARQUEE ───────── -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack"></div>
+  </div>
+
+  <!-- ───────── VIDEOS — horizontal scroller, 16:9 video tiles ───────── -->
+  <section class="work-section reels-section" id="videos">
+    <div class="work-heading">
+      <span class="work-heading-label">Videos &amp; Motion</span>
+      <h2 class="work-heading-outline">VIDEOS</h2>
+    </div>
+
+    <div class="work-scroll-wrap">
+      <button class="work-nav work-nav-prev" id="reelsPrev" aria-label="Scroll left">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+      </button>
+      <div class="work-track reels-track" id="reelsTrack"><!-- populated by script.js --></div>
+      <button class="work-nav work-nav-next" id="reelsNext" aria-label="Scroll right">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ───────── ABOUT ───────── -->
+  <section class="section section-about" id="about">
+    <div class="about-grid">
+      <div class="about-left">
+        <span class="about-initial" aria-hidden="true">A</span>
+      </div>
+
+      <div class="about-right">
+        <p class="section-tag">03 — About</p>
+        <h2 class="section-title">A designer who lets the <em>idea</em> lead.</h2>
+
+        <p class="about-line">
+          Hi, I'm Aakansha — a graphic designer and video editor with <strong>4+ years</strong> of experience helping brands look the way they want to feel.
+        </p>
+        <p class="about-line">
+          I work across brand identity, social, motion and packaging — for clients in education, jewellery, sports, FMCG and travel. I care about typography, restraint, and the quiet details that make a piece feel finished.
+        </p>
+
+        <!-- ✏️ EDIT: change numbers (data-target attribute) and labels -->
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-num" data-target="50">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="20">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Clients</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num" data-target="4">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Years</span>
+          </div>
+        </div>
+
+        <ul class="about-skills" id="aboutSkills">
+          <li class="skill-card">
+            <span class="skill-num">01</span>
+            <span class="skill-name">Graphic Design</span>
+            <span class="skill-desc">Branding · Layouts · Posters</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-num">02</span>
+            <span class="skill-name">Video Editing</span>
+            <span class="skill-desc">Reels · Shorts · Promos</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-num">03</span>
+            <span class="skill-name">Motion Graphics</span>
+            <span class="skill-desc">Animation · Transitions · FX</span>
+          </li>
+          <li class="skill-card">
+            <span class="skill-num">04</span>
+            <span class="skill-name">Brand Identity</span>
+            <span class="skill-desc">Logos · Systems · Guidelines</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────── CONTACT ───────── -->
+  <section class="section section-contact" id="contact">
+    <p class="section-tag">04 — Contact</p>
+    <p class="contact-prelude"><em>say&nbsp;hello</em></p>
+    <h2 class="contact-title">Let's make something <em>worth&nbsp;sharing</em>.</h2>
+
+    <a class="contact-mail" href="mailto:graphicsaakansha@gmail.com">graphicsaakansha@gmail.com</a>
+
+    <ul class="socials">
+      <li><a href="https://www.linkedin.com/in/aakansha-rathore-2110b23a7/?utm_source=share_via&amp;utm_content=profile" target="_blank" rel="noopener">LinkedIn <span>↗</span></a></li>
+    </ul>
+
+    <footer class="footer">
+      <div class="footer-row">
+        <div class="footer-info">
+          <p class="footer-name">© Aakansha</p>
+          <p class="footer-tag">Graphic Designer · Video Editor</p>
+        </div>
+
+        <div class="footer-socials">
+          <a class="social-icon" href="https://www.linkedin.com/in/aakansha-rathore-2110b23a7/?utm_source=share_via&amp;utm_content=profile" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zM8.3 18.3H5.7V9.7h2.6v8.6zM7 8.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm11.3 9.8h-2.6v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2v4.3h-2.6V9.7h2.5v1.2h.1c.3-.6 1.2-1.4 2.5-1.4 2.7 0 3.2 1.8 3.2 4.1v4.7z"/></svg>
+          </a>
+        </div>
+
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+        </button>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-credits">All visual work shown remains the property of its respective clients and is featured here for portfolio purposes only.</p>
+        <p class="footer-mark"><em>Crafted with care</em> <span class="footer-mark-orn">✦</span></p>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ───────── LIGHTBOX / FULLSCREEN MODAL ───────── -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="lb-close" id="lbClose" aria-label="Close (Esc)">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+    <div class="lb-stage">
+      <img id="lbImg" alt="" />
+      <video id="lbVideo" controls playsinline></video>
+    </div>
+    <div class="lb-caption" id="lbCaption"></div>
+    <span class="lb-hint">Press <kbd>Esc</kbd> to close</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
